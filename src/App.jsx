@@ -6,6 +6,7 @@ import TextAreaPanel from "./components/TextAreaPanel";
 import "./App.css";
 
 function App() {
+  // test line
   const [text, setText] = useState("");
   const [areSpacesExcluded, setAreSpacesExcluded] = useState(false);
   const [isThereCharLimit, setIsThereCharLimit] = useState(false);
