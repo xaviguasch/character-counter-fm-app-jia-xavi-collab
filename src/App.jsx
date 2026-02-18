@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-import "./App.css";
+import LetterDensity from "./components/LetterDensity";
 import TextAreaPanel from "./components/TextAreaPanel";
+
+import "./App.css";
 
 function App() {
   const [text, setText] = useState("");
@@ -15,6 +17,20 @@ function App() {
     : text.length;
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  const WORDS_PER_MINUTE = 250;
+
+  const readingTime = wordCount / WORDS_PER_MINUTE;
+
+  const minutes = Math.round(readingTime);
+
+  let totalReadingTime;
+
+  if (minutes === 0) {
+    totalReadingTime = "< 1 minute";
+  } else {
+    totalReadingTime = minutes;
+  }
 
   const handleSetText = (newText) => {
     if (!isThereCharLimit) {
@@ -51,8 +67,11 @@ function App() {
         onSetCharLimitNum={setCharLimitNum}
       />
 
+      {text && <p>Aprox. reading time {totalReadingTime}</p>}
       <p>Character count {charCount}</p>
       <p>Word count {wordCount}</p>
+
+      <LetterDensity text={text} />
     </div>
   );
 }
