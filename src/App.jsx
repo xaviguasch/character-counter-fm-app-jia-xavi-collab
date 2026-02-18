@@ -1,7 +1,10 @@
 import { useState } from "react";
 
+import { useTheme } from "./hooks/useTheme";
 import LetterDensity from "./components/LetterDensity";
 import TextAreaPanel from "./components/TextAreaPanel";
+import iconMoon from "./assets/icon-moon.svg";
+import iconSun from "./assets/icon-sun.svg";
 
 import "./App.css";
 
@@ -13,11 +16,28 @@ function App() {
   const [showLimitAlert, setShowLimitAlert] = useState(false);
   const [charLimitNum, setCharLimitNum] = useState(50);
 
+  const { theme, toggleTheme } = useTheme();
+
   const charCount = areSpacesExcluded
     ? text.replace(/\s/g, "").length
     : text.length;
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  // Code of Jia:
+  // function calcReadingTime(numOfWords) {
+  //   const averageWPM = 250;
+
+  //   const minutes = numOfWords / averageWPM;
+
+  //   if (minutes < 1) {
+  //     return "< 1 minute";
+  //   }
+
+  //   return `${Math.ceil(minutes)} min`;
+  // }
+
+  // const readingTime = calcReadingTime(wordCount);
 
   const WORDS_PER_MINUTE = 250;
 
@@ -54,7 +74,13 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-red-500">Character Counter</h1>
+      <div>
+        <h1 className="text-red-500">Character Counter</h1>
+        <img
+          src={theme === "dark" ? iconSun : iconMoon}
+          onClick={toggleTheme}
+        />
+      </div>
 
       <TextAreaPanel
         text={text}
@@ -66,6 +92,7 @@ function App() {
         onSetIsThereCharLimit={setIsThereCharLimit}
         charLimitNum={charLimitNum}
         onSetCharLimitNum={setCharLimitNum}
+        readingTime={readingTime}
       />
 
       {text && <p>Aprox. reading time {totalReadingTime}</p>}
