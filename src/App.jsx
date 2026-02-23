@@ -21,6 +21,9 @@ function App() {
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
+  // PLACEHOLDER!!!! Pending
+  const sentenceCount = 60;
+
   // Code of Jia:
   // function calcReadingTime(numOfWords) {
   //   const averageWPM = 250;
@@ -70,6 +73,15 @@ function App() {
   };
 
   return (
+    <div className="px-4">
+      <Header />
+      {/* <div>
+        <h1 className="text-red-500">Character Counter</h1>
+        <img
+          src={theme === "dark" ? iconSun : iconMoon}
+          onClick={toggleTheme}
+        />
+      </div> */}
     <div className="container">
       <Header />
 
@@ -86,6 +98,8 @@ function App() {
         readingTime={readingTime}
       />
 
+      {text && <p>Aprox. reading time {totalReadingTime}</p>}
+      {/* <p>Character count {charCount}</p>
       {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
       <p>Character count {charCount}</p>
       <p>Word count {wordCount}</p> */}
@@ -93,7 +107,7 @@ function App() {
       <CountArea
         charCount={charCount}
         wordCount={wordCount}
-        sentenceCount={60}
+        sentenceCount={sentenceCount}
       />
 
       <LetterDensity text={text} />
