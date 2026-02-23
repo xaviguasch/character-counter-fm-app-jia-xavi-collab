@@ -9,20 +9,20 @@ function Header() {
 
   return (
     <div>
-      <div className="mb-[48px] flex justify-between items-center">
-        <div className="w-[185px] h-[30px] md:w-[245px] md:h-[40px]">
+      <div className="mb-12 flex justify-between items-center">
+        <div className="w-46.25 h-7.5 md:w-61.25 md:h-10">
           <img
             src={theme === "dark" ? darkLogo : lightLogo}
-            className="w-full h-full"
+            className="w-full h-full "
           />
         </div>
         <div
           onClick={toggleTheme}
-          className="w-[32px] h-[32px] md:w-[44px] md:h-[44px] rounded-sm mdrounded-lg flex items-center justify-center bg-background2"
+          className="w-8 h-8 md:w-11 md:h-11 rounded-sm mdrounded-lg flex items-center justify-center bg-background2"
         >
           <img
             src={theme === "dark" ? iconSun : iconMoon}
-            className="w-[20px] h-[20px] md:w-[22px] md:h-[22px]"
+            className="w-5 h-5 md:w-5.5 md:h-5.5"
           />
         </div>
       </div>

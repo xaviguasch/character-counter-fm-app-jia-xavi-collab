@@ -1,15 +1,11 @@
 import { useState } from "react";
 
-import { useTheme } from "./hooks/useTheme";
-import LetterDensity from "./components/LetterDensity";
-import TextAreaPanel from "./components/TextAreaPanel";
-import iconMoon from "./assets/icon-moon.svg";
-import iconSun from "./assets/icon-sun.svg";
-import CountArea from "./components/CountArea";
-
 import Header from "./components/Header";
+import TextAreaPanel from "./components/TextAreaPanel";
+import LetterDensity from "./components/LetterDensity";
 
 import "./App.css";
+import CountArea from "./components/CountArea";
 
 function App() {
   // test line
@@ -18,8 +14,6 @@ function App() {
   const [isThereCharLimit, setIsThereCharLimit] = useState(false);
   const [showLimitAlert, setShowLimitAlert] = useState(false);
   const [charLimitNum, setCharLimitNum] = useState(50);
-
-  const { theme, toggleTheme } = useTheme();
 
   const charCount = areSpacesExcluded
     ? text.replace(/\s/g, "").length
@@ -88,6 +82,8 @@ function App() {
           onClick={toggleTheme}
         />
       </div> */}
+    <div className="container">
+      <Header />
 
       <TextAreaPanel
         text={text}
@@ -104,6 +100,8 @@ function App() {
 
       {text && <p>Aprox. reading time {totalReadingTime}</p>}
       {/* <p>Character count {charCount}</p>
+      {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
+      <p>Character count {charCount}</p>
       <p>Word count {wordCount}</p> */}
 
       <CountArea
