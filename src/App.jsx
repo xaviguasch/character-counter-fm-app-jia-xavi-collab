@@ -5,6 +5,9 @@ import LetterDensity from "./components/LetterDensity";
 import TextAreaPanel from "./components/TextAreaPanel";
 import iconMoon from "./assets/icon-moon.svg";
 import iconSun from "./assets/icon-sun.svg";
+import CountArea from "./components/CountArea";
+
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -23,6 +26,9 @@ function App() {
     : text.length;
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  // PLACEHOLDER!!!! Pending
+  const sentenceCount = 60;
 
   // Code of Jia:
   // function calcReadingTime(numOfWords) {
@@ -73,14 +79,15 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="px-4">
+      <Header />
+      {/* <div>
         <h1 className="text-red-500">Character Counter</h1>
         <img
           src={theme === "dark" ? iconSun : iconMoon}
           onClick={toggleTheme}
         />
-      </div>
+      </div> */}
 
       <TextAreaPanel
         text={text}
@@ -96,8 +103,14 @@ function App() {
       />
 
       {text && <p>Aprox. reading time {totalReadingTime}</p>}
-      <p>Character count {charCount}</p>
-      <p>Word count {wordCount}</p>
+      {/* <p>Character count {charCount}</p>
+      <p>Word count {wordCount}</p> */}
+
+      <CountArea
+        charCount={charCount}
+        wordCount={wordCount}
+        sentenceCount={sentenceCount}
+      />
 
       <LetterDensity text={text} />
     </div>
