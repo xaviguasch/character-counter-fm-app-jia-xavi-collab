@@ -75,15 +75,6 @@ function App() {
   return (
     <div className="px-4">
       <Header />
-      {/* <div>
-        <h1 className="text-red-500">Character Counter</h1>
-        <img
-          src={theme === "dark" ? iconSun : iconMoon}
-          onClick={toggleTheme}
-        />
-      </div> */}
-    <div className="container">
-      <Header />
 
       <TextAreaPanel
         text={text}
@@ -116,39 +107,3 @@ function App() {
 }
 
 export default App;
-
-// import { useState } from "react";
-
-// import TextAreaPanel from "./components/TextAreaPanel";
-
-// import "./App.css";
-
-// function App() {
-//   const [text, setText] = useState("");
-//   const [excludeSpaces, setExcludeSpaces] = useState(false);
-
-//   const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
-//   const sentenceCount =
-//     text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
-
-//   return (
-//     <>
-//       <h1>Analyze your text in real-time</h1>
-//       <TextAreaPanel
-//         text={text}
-//         setText={setText}
-//         excludeSpaces={excludeSpaces}
-//         setExcludeSpaces={setExcludeSpaces}
-//       />
-
-//       <p>
-//         Total Characters:
-//         {text.length}
-//       </p>
-//       <p>Word Count: {wordCount}</p>
-//       <p>Sentence Count: {sentenceCount}</p>
-//     </>
-//   );
-// }
-
-// export default App;
