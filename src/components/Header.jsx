@@ -9,15 +9,25 @@ function Header() {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
-        <img src={theme === "dark" ? darkLogo : lightLogo} />
-        <img
-          src={theme === "dark" ? iconSun : iconMoon}
+      <div className="mb-12 flex justify-between items-center">
+        <div className="w-46.25 h-7.5 md:w-61.25 md:h-10">
+          <img
+            src={theme === "dark" ? darkLogo : lightLogo}
+            className="w-full h-full "
+          />
+        </div>
+        <div
           onClick={toggleTheme}
-        />
+          className="w-8 h-8 md:w-11 md:h-11 rounded-sm mdrounded-lg flex items-center justify-center bg-background2"
+        >
+          <img
+            src={theme === "dark" ? iconSun : iconMoon}
+            className="w-5 h-5 md:w-5.5 md:h-5.5"
+          />
+        </div>
       </div>
-      <h1 className="text-text1 text-preset-1">
-        Analyze your text <span className="block">in real-time</span>
+      <h1 className="text-preset-1 text-text1 text-center mb-12 ">
+        Analyze your text <span className="inline md:block">in real-time</span>
       </h1>
     </div>
   );
