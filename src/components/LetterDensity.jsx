@@ -10,10 +10,10 @@ function LetterDensity({ text }) {
   }
 
   return (
-    <div>
-      <h2>Letter Density</h2>
+    <div className="flex flex-col gap-5">
+      <h2 className="text-preset-2">Letter Density</h2>
 
-      <div>
+      <div className="flex flex-col gap-3">
         {text &&
           letterGroupDataArr
             // we're sorting for higher frequency to lower
