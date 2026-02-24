@@ -1,7 +1,10 @@
 function ProgressBar({ value }) {
   return (
-    <div className="w-full h-4 bg-gray-300 rounded overflow-hidden">
-      <div className="h-full bg-violet-500 " style={{ width: `${value}%` }} />
+    <div className="w-[80%] sm:w-[90%] md:w-full h-3 bg-background2 rounded-xl overflow-hidden">
+      <div
+        className="h-full bg-purple rounded-xl"
+        style={{ width: `${value}%` }}
+      />
     </div>
   );
 }
