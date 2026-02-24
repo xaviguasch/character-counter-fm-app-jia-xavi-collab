@@ -16,8 +16,12 @@
 @theme {
   --color-background1: var(--color-white);
   --color-background2: var(--color-neutral-100);
-  --color-text1: var(--color-neutral-900);
-  --color-text2: var(--color-neutral-700);
+
+  --color-text: var(--color-neutral-900);
+  --color-header: var(--color-neutral-900);
+  --color-textarea: var(--color-neutral-700);
+  --color-count-card: var(--color-neutral-900);
+
   --color-purple: var(--color-purple-400);
   --color-yellow: var(--color-yellow-500);
   --color-orange: var(--color-orange-500);
@@ -26,20 +30,20 @@
 .dark {
   --color-background1: var(--color-neutral-900);
   --color-background2: var(--color-neutral-700);
-  --color-text1: var(--color-neutral-100);
-  --color-text2: var(--color-neutral-200);
-  --color-purple: var(--color-purple-400);
-  --color-yellow: var(--color-yellow-500);
-  --color-orange: var(--color-orange-500);
+
+  --color-text: var(--color-neutral-200);
+  --color-header: var(--color-neutral-100);
+  --color-textarea: var(--color-neutral-200);
 }
 
 body {
-  font-family: "DM sans";
+  font-family: "DM sans", sans-serif;
   background-color: var(--color-background1);
-  color: var(--color-text1);
+  color: var(--color-text);
 }
 
 @layer utilities {
+<<<<<<< Updated upstream
   .container {
     @apply max-w-[1440px] w-[90%] lg:w-[70%]  pt-4 lg:pt-10 my-0 mx-auto;
     /* margin: 0 auto; */
@@ -47,25 +51,22 @@ body {
 
   .text-preset-1 {
     @apply font-bold leading-none tracking-[-1px] text-[40px] md:text-[64px];
+=======
+  .text-preset-1 {
+    @apply font-bold leading-none tracking-[-1px] text-[40px] md:text-[64px];
+    letter-spacing: -1px;
+>>>>>>> Stashed changes
   }
 
   .text-preset-2 {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: -1px;
+    @apply text-[24px] font-semibold tracking-[-1px];
   }
 
   .text-preset-3 {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: -0.6px;
+    @apply text-[20px] font-normal leading-[1.4] tracking-[-0.6px];
   }
 
   .text-preset-4 {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.6px;
-    line-height: 1.3;
+    @apply text-[16px] font-normal leading-[1.3] tracking-[-0.6px];
   }
 }
