@@ -21,6 +21,8 @@
   --color-purple: var(--color-purple-400);
   --color-yellow: var(--color-yellow-500);
   --color-orange: var(--color-orange-500);
+
+  --color-border-textarea: var(--color-neutral-200);
 }
 
 .dark {
@@ -31,12 +33,24 @@
   --color-purple: var(--color-purple-400);
   --color-yellow: var(--color-yellow-500);
   --color-orange: var(--color-orange-500);
+
+  --color-border-textarea: var(--color-neutral-700);
 }
 
 body {
   font-family: "DM sans";
   background-color: var(--color-background1);
   color: var(--color-text1);
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
 }
 
 @layer utilities {
