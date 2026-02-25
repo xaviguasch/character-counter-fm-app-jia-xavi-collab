@@ -2,7 +2,7 @@ import Counter from "./Counter";
 
 function CountArea({ charCount, wordCount, sentenceCount }) {
   return (
-    <div className="w-full flex flex-col gap-4 md:flex-row">
+    <div className="text-count-card w-full flex flex-col gap-4 md:flex-row">
       <Counter
         name="Total Characters"
         number={charCount}
