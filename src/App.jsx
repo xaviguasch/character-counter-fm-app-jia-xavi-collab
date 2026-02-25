@@ -21,6 +21,9 @@ function App() {
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
+  // PLACEHOLDER!!!! Pending
+  const sentenceCount = 60;
+
   // Code of Jia:
   // function calcReadingTime(numOfWords) {
   //   const averageWPM = 250;
@@ -45,9 +48,11 @@ function App() {
   let totalReadingTime;
 
   if (minutes === 0) {
-    totalReadingTime = "< 1 minute";
+    totalReadingTime = "<1 minute";
+  } else if (minutes === 1) {
+    totalReadingTime = "1 minute";
   } else {
-    totalReadingTime = minutes;
+    totalReadingTime = `${minutes} minutes`;
   }
 
   const handleSetText = (newText) => {
@@ -84,8 +89,10 @@ function App() {
         charLimitNum={charLimitNum}
         onSetCharLimitNum={setCharLimitNum}
         readingTime={readingTime}
+        totalReadingTime={totalReadingTime}
       />
 
+      {/* <p>Character count {charCount}</p>
       {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
       <p>Character count {charCount}</p>
       <p>Word count {wordCount}</p> */}
@@ -93,7 +100,7 @@ function App() {
       <CountArea
         charCount={charCount}
         wordCount={wordCount}
-        sentenceCount={60}
+        sentenceCount={sentenceCount}
       />
 
       <LetterDensity text={text} />
@@ -102,39 +109,3 @@ function App() {
 }
 
 export default App;
-
-// import { useState } from "react";
-
-// import TextAreaPanel from "./components/TextAreaPanel";
-
-// import "./App.css";
-
-// function App() {
-//   const [text, setText] = useState("");
-//   const [excludeSpaces, setExcludeSpaces] = useState(false);
-
-//   const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
-//   const sentenceCount =
-//     text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
-
-//   return (
-//     <>
-//       <h1>Analyze your text in real-time</h1>
-//       <TextAreaPanel
-//         text={text}
-//         setText={setText}
-//         excludeSpaces={excludeSpaces}
-//         setExcludeSpaces={setExcludeSpaces}
-//       />
-
-//       <p>
-//         Total Characters:
-//         {text.length}
-//       </p>
-//       <p>Word Count: {wordCount}</p>
-//       <p>Sentence Count: {sentenceCount}</p>
-//     </>
-//   );
-// }
-
-// export default App;

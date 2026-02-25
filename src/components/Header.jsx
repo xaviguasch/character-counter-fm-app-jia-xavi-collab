@@ -18,7 +18,8 @@ function Header() {
         </div>
         <div
           onClick={toggleTheme}
-          className="w-8 h-8 md:w-11 md:h-11 rounded-sm mdrounded-lg flex items-center justify-center bg-background2"
+          className="w-8 h-8 md:w-11 md:h-11 rounded-sm mdrounded-lg flex items-center justify-center
+           bg-background2 cursor-pointer"
         >
           <img
             src={theme === "dark" ? iconSun : iconMoon}

@@ -16,7 +16,7 @@ export function getLetterPercentages(text) {
   const result = {};
   for (const letter in counts) {
     const count = counts[letter];
-    const percentage = Number(((count / total) * 100).toFixed(1));
+    const percentage = Number(((count / total) * 100).toFixed(2));
     result[letter] = [count, percentage];
   }
 
