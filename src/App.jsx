@@ -48,9 +48,11 @@ function App() {
   let totalReadingTime;
 
   if (minutes === 0) {
-    totalReadingTime = "< 1 minute";
+    totalReadingTime = "<1 minute";
+  } else if (minutes === 1) {
+    totalReadingTime = "1 minute";
   } else {
-    totalReadingTime = minutes;
+    totalReadingTime = `${minutes} minutes`;
   }
 
   const handleSetText = (newText) => {
@@ -87,9 +89,9 @@ function App() {
         charLimitNum={charLimitNum}
         onSetCharLimitNum={setCharLimitNum}
         readingTime={readingTime}
+        totalReadingTime={totalReadingTime}
       />
 
-      {text && <p>Aprox. reading time {totalReadingTime}</p>}
       {/* <p>Character count {charCount}</p>
       {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
       <p>Character count {charCount}</p>
