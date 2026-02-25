@@ -43,19 +43,8 @@ body {
 }
 
 @layer utilities {
-<<<<<<< Updated upstream
-  .container {
-    @apply max-w-[1440px] w-[90%] lg:w-[70%]  pt-4 lg:pt-10 my-0 mx-auto;
-    /* margin: 0 auto; */
-  }
-
   .text-preset-1 {
     @apply font-bold leading-none tracking-[-1px] text-[40px] md:text-[64px];
-=======
-  .text-preset-1 {
-    @apply font-bold leading-none tracking-[-1px] text-[40px] md:text-[64px];
-    letter-spacing: -1px;
->>>>>>> Stashed changes
   }
 
   .text-preset-2 {

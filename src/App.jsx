@@ -70,7 +70,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="max-w-247.5 px-6 lg:px-0 pt-4 lg:pt-10 pb-10 mx-auto">
       <Header />
 
       <TextAreaPanel
