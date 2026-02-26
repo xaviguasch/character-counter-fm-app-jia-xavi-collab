@@ -18,10 +18,10 @@ function LetterDensity({ text }) {
   const displayedLetters = showAll ? sortedLetters : sortedLetters?.slice(0, 5);
 
   return (
-    <div className="">
-      <h2 className="text-preset-2 mt-6 mb-5">Letter Density</h2>
+    <div className="flex flex-col gap-5">
+      <h2 className="text-preset-2 ">Letter Density</h2>
 
-      <ul className="flex flex-col gap-3 mb-5">
+      <ul className="flex flex-col gap-3">
         {text &&
           displayedLetters.map(([letter, [count, percentage]]) => {
             return (

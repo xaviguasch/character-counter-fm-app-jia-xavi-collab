@@ -8,8 +8,8 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div>
-      <div className="mb-12 flex justify-between items-center">
+    <div className="flex flex-col gap-14">
+      <div className="flex justify-between items-center">
         <div className="w-46.25 h-7.5 md:w-61.25 md:h-10">
           <img
             src={theme === "dark" ? darkLogo : lightLogo}
@@ -27,8 +27,9 @@ function Header() {
           />
         </div>
       </div>
-      <h1 className="text-preset-1 text-text1 text-center mb-12 ">
-        Analyze your text <span className="inline md:block">in real-time</span>
+
+      <h1 className="text-preset-1 text-text1 text-center">
+        Analyze your text <span className="inline md:block">in real-time.</span>
       </h1>
     </div>
   );
