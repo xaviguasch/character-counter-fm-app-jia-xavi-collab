@@ -1,3 +1,4 @@
+import { useState } from "react";
 import infoIcon from "../assets/icon-info.svg";
 
 function TextAreaPanel({
@@ -5,30 +6,47 @@ function TextAreaPanel({
   onSetText,
   areSpacesExcluded,
   onSetAreSpacesExcluded,
-  isThereCharLimit,
-  onSetIsThereCharLimit,
-  showLimitAlert,
-  charLimit,
-  charLimitNum,
-  onSetCharLimitNum,
   totalReadingTime,
 }) {
+  const [isThereCharLimit, setIsThereCharLimit] = useState(false);
+  const [showLimitAlert, setShowLimitAlert] = useState(false);
+  const [charLimitNum, setCharLimitNum] = useState(50);
+
+  const handleSetText = (newText) => {
+    if (!isThereCharLimit) {
+      setShowLimitAlert(false);
+      onSetText(newText);
+      return;
+    }
+
+    const newCharCount = areSpacesExcluded
+      ? newText.replace(/\s/g, "").length
+      : newText.length;
+
+    if (newCharCount <= charLimitNum) {
+      setShowLimitAlert(false);
+      onSetText(newText);
+    } else {
+      setShowLimitAlert(true);
+    }
+  };
+
   return (
-    <div className="mb-12">
+    <div className="">
       <textarea
         value={text}
-        onChange={(e) => onSetText(e.target.value)}
+        onChange={(e) => handleSetText(e.target.value)}
         placeholder="Start typing here... (or paste your text)"
         className={`w-full h-50 border p-4 md:p-5 text-preset-3 text-textarea placeholder-textarea 
           rounded-xl cursor-pointer bg-background2 color-textarea
           ${
-            showLimitAlert
-              ? "border-orange shadow-lg shadow-red-500/20"
-              : "border-border-textarea"
+            showLimitAlert && isThereCharLimit
+              ? "border-orange focus:border-orange active:border-orange shadow-lg shadow-red-500/20 "
+              : "border-border-textarea focus:border-purple active:border-purple"
           }
-          focus:border-purple focus:border-2 focus:outline-none
-          active:border-purple active:border-2
-          focus:shadow-lg active:shadow-lg`}
+           focus:border-2 focus:outline-none focus:shadow-lg
+           active:border-2 active:shadow-lg
+          `}
       />
 
       {showLimitAlert && isThereCharLimit && (
@@ -40,7 +58,7 @@ function TextAreaPanel({
         </p>
       )}
 
-      <div className="mt-4 flex flex-col md:flex-row gap-3 md:gap-6">
+      <div className="mt-4 h-[29px] flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
         <div className="flex flex-row gap-2.5 items-center">
           <input
             type="checkbox"
@@ -48,6 +66,12 @@ function TextAreaPanel({
             className="checkbox"
             checked={areSpacesExcluded}
             onChange={(e) => onSetAreSpacesExcluded(e.target.checked)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                onSetAreSpacesExcluded((prev) => !prev);
+              }
+            }}
           />
           <label
             htmlFor="spaces-checkbox"
@@ -63,7 +87,13 @@ function TextAreaPanel({
             id="char-limit-checkbox"
             className="checkbox"
             checked={isThereCharLimit}
-            onChange={(e) => onSetIsThereCharLimit(e.target.checked)}
+            onChange={(e) => setIsThereCharLimit(e.target.checked)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                setIsThereCharLimit((prev) => !prev);
+              }
+            }}
           />
           <label
             htmlFor="char-limit-checkbox"
@@ -81,7 +111,7 @@ function TextAreaPanel({
                   value={charLimitNum}
                   className="px-3 py-1 text-center text-preset-4 border border-[var(--color-neutral-600)] 
                   w-13.75 h-7.25 rounded-md no-spinner"
-                  onChange={(e) => onSetCharLimitNum(e.target.value)}
+                  onChange={(e) => setCharLimitNum(e.target.value)}
                 />
               </div>
             )}

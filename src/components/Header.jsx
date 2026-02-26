@@ -8,7 +8,7 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-12">
       <div className="flex justify-between items-center">
         <div className="w-46.25 h-7.5 md:w-61.25 md:h-10">
           <img
