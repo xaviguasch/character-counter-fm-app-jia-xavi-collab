@@ -16,6 +16,7 @@ function Header() {
             className="w-full h-full "
           />
         </div>
+
         <div
           onClick={toggleTheme}
           className="w-8 h-8 md:w-11 md:h-11 rounded-sm mdrounded-lg flex items-center justify-center
@@ -28,7 +29,7 @@ function Header() {
         </div>
       </div>
 
-      <h1 className="text-preset-1 text-text1 text-center">
+      <h1 className="text-preset-1 text-header text-center">
         Analyze your text <span className="inline md:block">in real-time.</span>
       </h1>
     </div>

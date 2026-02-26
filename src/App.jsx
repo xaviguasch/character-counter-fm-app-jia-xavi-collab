@@ -8,7 +8,6 @@ import "./App.css";
 import CountArea from "./components/CountArea";
 
 function App() {
-  // test line
   const [text, setText] = useState("");
   const [areSpacesExcluded, setAreSpacesExcluded] = useState(false);
   const [isThereCharLimit, setIsThereCharLimit] = useState(false);
@@ -21,23 +20,8 @@ function App() {
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
-  // PLACEHOLDER!!!! Pending
-  const sentenceCount = 60;
-
-  // Code of Jia:
-  // function calcReadingTime(numOfWords) {
-  //   const averageWPM = 250;
-
-  //   const minutes = numOfWords / averageWPM;
-
-  //   if (minutes < 1) {
-  //     return "< 1 minute";
-  //   }
-
-  //   return `${Math.ceil(minutes)} min`;
-  // }
-
-  // const readingTime = calcReadingTime(wordCount);
+  const sentenceCount =
+    text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
 
   const WORDS_PER_MINUTE = 250;
 
@@ -75,7 +59,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-247.5 px-4 lg:px-0 pt-4 lg:pt-10 pb-8 mx-auto flex flex-col gap-10">
+    <div className="max-w-247.5 px-4 md:px-8 lg:px-0 pt-4 lg:pt-8 pb-8 md:pb-16 mx-auto flex flex-col gap-10 lg:gap-12">
       <Header />
 
       <TextAreaPanel
@@ -91,11 +75,6 @@ function App() {
         readingTime={readingTime}
         totalReadingTime={totalReadingTime}
       />
-
-      {/* <p>Character count {charCount}</p>
-      {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
-      <p>Character count {charCount}</p>
-      <p>Word count {wordCount}</p> */}
 
       <CountArea
         charCount={charCount}
