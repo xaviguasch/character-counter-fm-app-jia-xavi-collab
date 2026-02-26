@@ -21,8 +21,8 @@ function App() {
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
 
-  // PLACEHOLDER!!!! Pending
-  const sentenceCount = 60;
+  const sentenceCount =
+    text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
 
   // Code of Jia:
   // function calcReadingTime(numOfWords) {
@@ -75,7 +75,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-247.5 px-6 lg:px-0 pt-4 lg:pt-10 pb-10 mx-auto">
+    <div className="max-w-247.5 px-4 md:px-6 lg:px-0 pt-4 lg:pt-10 pb-10 mx-auto">
       <Header />
 
       <TextAreaPanel
@@ -91,11 +91,6 @@ function App() {
         readingTime={readingTime}
         totalReadingTime={totalReadingTime}
       />
-
-      {/* <p>Character count {charCount}</p>
-      {/* {text && <p>Aprox. reading time {totalReadingTime}</p>}
-      <p>Character count {charCount}</p>
-      <p>Word count {wordCount}</p> */}
 
       <CountArea
         charCount={charCount}
