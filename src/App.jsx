@@ -75,7 +75,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-247.5 px-4 lg:px-0 pt-4 lg:pt-10 pb-8 mx-auto flex flex-col gap-10">
+    <div className="max-w-247.5 px-4 md:px-8 lg:px-0 pt-4 lg:pt-8 pb-8 md:pb-16 mx-auto flex flex-col gap-10 lg:gap-12">
       <Header />
 
       <TextAreaPanel
