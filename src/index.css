@@ -84,34 +84,32 @@ body {
 
   .checkbox {
     @apply w-4 h-4 appearance-none rounded border-2 cursor-pointer border-text bg-background1 
-    bg-center bg-no-repeat bg-contain;
-    transition: var(--transition);
+    bg-center bg-no-repeat bg-contain transition-[var(--transition)];
   }
 
   .checkbox:checked {
-    background-color: var(--color-purple-400);
-    border-color: var(--color-purple-400);
+    @apply bg-purple border-purple;
     background-image: url("/icon-check.svg");
   }
 
   .checkbox:not(:checked):focus-visible {
-    outline: none;
+    @apply outline-none border-[var(--color-neutral-200)] bg-[var(--color-white)];
+
     box-shadow:
       0 0 0 2px white,
-      0 0 0 4px var(--color-purple-400);
-    background-color: var(--color-white);
+      0 0 0 5px var(--color-purple-400);
   }
 
   .checkbox:checked:hover {
-    background-color: var(--color-purple-500);
-    border-color: var(--color-purple-500);
+    @apply bg-[var(--color-purple-500)] border-[var(--color-purple-500)];
   }
 
   .checkbox:checked:focus-visible {
-    outline: none;
+    @apply outline-none;
+
     box-shadow:
       0 0 0 2px white,
-      0 0 0 4px var(--color-purple-400);
+      0 0 0 5px var(--color-purple-400);
   }
 
   .no-spinner::-webkit-outer-spin-button,

@@ -20,19 +20,25 @@ function LetterDensity({ text }) {
   return (
     <div className="flex flex-col gap-5">
       <h2 className="text-preset-2 ">Letter Density</h2>
+      {!text && (
+        <p className="text-preset-4">
+          No character found. Start typing to see letter density.
+        </p>
+      )}
+
       <ul className="flex flex-col gap-3">
-        {text &&
-          displayedLetters.map(([letter, [count, percentage]]) => {
-            return (
-              <LetterGroup
-                key={letter}
-                letter={letter}
-                count={count}
-                percentage={percentage}
-              />
-            );
-          })}
+        {displayedLetters?.map(([letter, [count, percentage]]) => {
+          return (
+            <LetterGroup
+              key={letter}
+              letter={letter}
+              count={count}
+              percentage={percentage}
+            />
+          );
+        })}
       </ul>
+
       {letterGroupDataArr?.length > 5 && (
         <button
           className="text-preset-3 cursor-pointer flex items-center gap-2 "
@@ -57,11 +63,6 @@ function LetterDensity({ text }) {
           </svg>
         </button>
       )}
-      ) : (
-      <p className="text-preset-4">
-        No character found. Start typing to see letter density.
-      </p>
-      )
     </div>
   );
 }
