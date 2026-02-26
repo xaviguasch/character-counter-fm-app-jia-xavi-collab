@@ -23,6 +23,21 @@ function App() {
   const sentenceCount =
     text.trim() === "" ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
 
+  // Code of Jia:
+  // function calcReadingTime(numOfWords) {
+  //   const averageWPM = 250;
+
+  //   const minutes = numOfWords / averageWPM;
+
+  //   if (minutes < 1) {
+  //     return "< 1 minute";
+  //   }
+
+  //   return `${Math.ceil(minutes)} min`;
+  // }
+
+  // const readingTime = calcReadingTime(wordCount);
+
   const WORDS_PER_MINUTE = 250;
 
   const readingTime = wordCount / WORDS_PER_MINUTE;
